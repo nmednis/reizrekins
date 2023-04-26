@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	h1{
+	font-family:Comic Sans MS;
+		color:Purple;
+		font-size:50px;
+		text-align:center;
+	}
+	input.viens {
+		color:blue;
+		border: solid 3px blue;
+		background-color:#dddddd;
+		text-align: center;
+	}
+	label.viens{
+		color:blue;
+	}
+	input.divi {
+		color:SaddleBrown;
+		border: solid 3px SaddleBrown;
+		background-color:#dddddd;
+		text-align: center;
+	}
+	label.divi{
+		color:SaddleBrown;
+	}
+	input.tris {
+		color:Purple;
+		border: solid 3px Purple;
+		background-color:#dddddd;
+		text-align: center;
+	}
+	label.tris{
+		color:Purple;
+	}
+	input.cetri {
+		color:RebeccaPurple;
+		border: solid 3px RebeccaPurple;
+		background-color:#dddddd;
+		text-align: center;
+	}
+	label.cetri{
+		color:RebeccaPurple;
+	}
+	button.v{
+		background-color:DodgerBlue ;
+		border:3px solid blue;
+		color: white;
+		padding: 5px 10px;
+		text-align: center;
+	}
+	button.d{
+		background-color:SandyBrown ;
+		border:3px solid SaddleBrown;
+		color: white;
+		padding: 5px 10px;
+		text-align: center;
+	}
+	button.t{
+		background-color:MediumPurple ;
+		border:3px solid Purple;
+		color: white;
+		padding: 5px 10px;
+		text-align: center;
+	}
+	button.c{
+		background-color:DeepPink ;
+		border:3px solid RebeccaPurple;
+		color: white;
+		padding: 5px 10px;
+		text-align: center;
+	}
+	button.viens{
+		background-color:LightYellow;
+		color:black;
+		font-size:20px;
+		text-align:center;
+		border:5px solid blue;
+		width:24%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.viens:hover{
+		background-color:DodgerBlue;
+		color:white;
+		font-size:20px;
+		text-align:center;
+		border:5px solid blue;
+		width:24%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.divi{
+		background-color:LightYellow;
+		color:black;
+		font-size:20px;
+		text-align:center;
+		border:5px solid SaddleBrown;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.divi:hover{
+		background-color:SandyBrown;
+		color:white;
+		font-size:20px;
+		text-align:center;
+		border:5px solid SaddleBrown;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.tris{
+		background-color:LightYellow;
+		color:black;
+		font-size:20px;
+		text-align:center;
+		border:5px solid Purple;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.tris:hover{
+		background-color:MediumPurple;
+		color:white;
+		font-size:20px;
+		text-align:center;
+		border:5px solid Purple;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.cetri{
+		background-color:LightYellow;
+		color:black;
+		font-size:20px;
+		text-align:center;
+		border:5px solid RebeccaPurple;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	button.cetri:hover{
+		background-color:DeepPink;
+		color:white;
+		font-size:20px;
+		text-align:center;
+		border:5px solid RebeccaPurple;
+		width:25%;
+		height:100px;
+		font-family:Comic Sans MS;
+		cursor: pointer;
+	}
+	
+	div{
+		margin:auto;
+		width:300px;
+		background-color: #dddddd;
+		padding:40px;
+		style.display:none;
+	}
+</style>
+</head>
+<body style="background-color:LightYellow;">
+	<h1> Matemātiskas darbības sākumskolai </h1>
+	<button class="viens" onclick="PogaViens()" >Reizrēķins</button>
+	<button class="divi" onclick="PogaDivi()" >Saskaitīšana</button>
+	<button class="tris" onclick="PogaTris()" >Atņemšana</button>
+	<button class="cetri" onclick="PogaCetri()" >Dalīšana</button>
+	<br>
+	<br>
+	<div id="reiz" style="display:none">
+		<label class="viens" >Cik ir</label> 
+		<input  class="viens"type="text" id="uzdevums" size="1" value="">
+		<label class="viens" for="uzdevums">?</label> 
+		<br><br>
+		<label class="viens"for="ievads">Atbilde:</label> 
+		<input class="viens" type="text" id="ievads" size="1" value="">
+		<br><br>
+		<button class="v"onclick="parbaude()">Pārbaude</button>
+		<br>
+		<label class="viens"for="rez">Pārbaudes rezultāts:</label>
+		<input class="viens"type="text" id="rez" value=""> <br><br>
+		<button class="v"onclick="uzdevums()">Jauns uzdevums</button>
+	</div>
+	<div id="plus" style="display:none">
+		<label class="divi"for="uzdevums">Cik ir</label> 
+		<input class="divi"type="text" id="uzdevumss" size="1" value="">
+		<label class="divi"for="uzdevums">?</label> 
+		<br><br>
+		<label class="divi"for="ievads">Atbilde:</label> 
+		<input class="divi"type="text" id="ievadss" size="1" value="">
+		<br><br>
+		<button class="d"onclick="parbaudee()">Pārbaude</button>
+		<br>
+		<label class="divi"for="rez">Pārbaudes rezultāts:</label>
+		<input class="divi"type="text" id="rezz" value=""> <br><br>
+		<button class="d"onclick="uzdevumss()">Jauns uzdevums</button>
+	</div>
+	<div id="minus" style="display:none">
+		<label class="tris"for="uzdevums">Cik ir</label> 
+		<input class="tris"type="text" id="uzdevumsss" size="1" value="">
+		<label class="tris"for="uzdevums">?</label> 
+		<br><br>
+		<label class="tris"for="ievads">Atbilde:</label> 
+		<input class="tris"type="text" id="ievadsss" size="1" value="">
+		<br><br>
+		<button class="t"onclick="parbaudeee()">Pārbaude</button>
+		<br>
+		<label class="tris"for="rez">Pārbaudes rezultāts:</label>
+		<input class="tris"type="text" id="rezzz" value=""> <br><br>
+		<button class="t"onclick="uzdevumsss()">Jauns uzdevums</button>
+	</div>
+	<div id="dal" style="display:none">
+		<label class="cetri"for="uzdevums">Cik ir</label> 
+		<input class="cetri"type="text" id="dalisana" size="1" value="">
+		<label class="cetri"for="uzdevums">?</label> 
+		<br><br>
+		<label class="cetri"for="ievads">Atbilde:</label> 
+		<input class="cetri"type="text" id="ievadsd" size="1" value="">
+		<br><br>
+		<button class="c"onclick="parbauded()">Pārbaude</button>
+		<br>
+		<label class="cetri"for="rez">Pārbaudes rezultāts:</label>
+		<input class="cetri"type="text" id="rezultats" value=""> <br><br>
+		<button class="c"onclick="dalisana()">Jauns uzdevums</button>
+	</div>
+	
+<script>
+	var a,b,y;
+	document.getElementById("uzdevums").value=""; 
+	document.getElementById("ievads").value=""; 
+	document.getElementById("uzdevumss").value=""; 
+	document.getElementById("ievadss").value=""; 
+	document.getElementById("uzdevumsss").value=""; 
+	document.getElementById("ievadsss").value=""; 
+	document.getElementById("dalisana").value=""; 
+	document.getElementById("ievadsd").value="";
+	function parbaude(){ 
+		y = document.getElementById("ievads").value;
+		if (y==a*b){
+			document.getElementById("rez").value = "Pareizi";
+			document.getElementById("reiz").style.backgroundColor="Lime";
+		}
+		else{
+			document.getElementById("rez").value = "Nepareizi";
+			document.getElementById("reiz").style.backgroundColor="red";
+		}
+	}
+	function uzdevums() { 
+		a=Math.floor(Math.random() * 9) + 1;
+		b=Math.floor(Math.random() * 9) + 1;
+		document.getElementById("uzdevums").value = a +"*" + b;
+		document.getElementById("ievads").value="";
+		document.getElementById("rez").value = "";
+		document.getElementById("reiz").style.backgroundColor="#dddddd";
+	} 
+	function parbaudee(){ 
+		 y= document.getElementById("ievadss").value;
+		if (y==a+b){
+			document.getElementById("rezz").value = "Pareizi";
+			document.getElementById("plus").style.backgroundColor="Lime";
+		}
+		else{
+			document.getElementById("rezz").value = "Nepareizi";
+			document.getElementById("plus").style.backgroundColor="red";
+		}
+	}
+	function uzdevumss() { 
+		a=Math.floor(Math.random() * 9) + 1;
+		b=Math.floor(Math.random() * 9) + 1;
+		document.getElementById("uzdevumss").value = a +"+" + b;
+		document.getElementById("ievadss").value="";
+		document.getElementById("rezz").value = "";
+		document.getElementById("plus").style.backgroundColor="#dddddd";
+	}
+		function parbaudeee(){ 
+		 y= document.getElementById("ievadsss").value;
+		if(a>b){
+			if (y==a-b){
+			document.getElementById("rezzz").value = "Pareizi";
+			document.getElementById("minus").style.backgroundColor="Lime";
+			}
+			else{
+			document.getElementById("rezzz").value = "Nepareizi";
+			document.getElementById("minus").style.backgroundColor="red";
+			}
+		}
+		if(a<b){
+			if (y==b-a){
+			document.getElementById("rezzz").value = "Pareizi";
+			document.getElementById("minus").style.backgroundColor="Lime";
+			}
+			else{
+			document.getElementById("rezzz").value = "Nepareizi";
+			document.getElementById("minus").style.backgroundColor="red";
+			}
+		}
+	}
+	function uzdevumsss() { 
+		a=Math.floor(Math.random() * 9) + 1;
+		b=Math.floor(Math.random() * 9) + 1;
+		if(a>b){
+			document.getElementById("uzdevumsss").value = a +"-" + b;
+			document.getElementById("ievadsss").value="";
+			document.getElementById("rezzz").value = "";
+			document.getElementById("minus").style.backgroundColor="#dddddd";
+		}
+		if(b>a){
+			document.getElementById("uzdevumsss").value = b +"-" + a;
+			document.getElementById("ievadsss").value="";
+			document.getElementById("rezzz").value = "";
+			document.getElementById("minus").style.backgroundColor="#dddddd";
+		}
+		
+	}
+	function parbauded(){
+	y = document.getElementById("ievadsd").value;
+		if(a>b){
+			if(y==a/b){
+				document.getElementById("rezultats").value = "Pareizi";
+				document.getElementById("dal").style.backgroundColor="Lime";
+			}
+			else{
+				document.getElementById("rezultats").value = "Nepareizi";
+				document.getElementById("dal").style.backgroundColor="red";
+			}
+		}
+		if(a<b){
+			if(y==b/a){
+				document.getElementById("rezultats").value = "Pareizi";
+				document.getElementById("dal").style.backgroundColor="Lime";
+			}
+			else{
+				document.getElementById("rezultats").value = "Nepareizi";
+				document.getElementById("dal").style.backgroundColor="red";
+			}
+		}
+	}
+	function dalisana(){
+		a=Math.floor(Math.random() * 9) + 1;
+		b=Math.floor(Math.random() * 9) + 1;
+		if(a>b){
+			while(a%b>0){
+				b=Math.floor(Math.random() * 9) + 1;
+			}
+		}
+		if(a<b){
+			while(b%a>0){
+				a=Math.floor(Math.random() * 9) + 1;
+			}
+		}
+		
+		if(a>b){
+			document.getElementById("dalisana").value = a +":" + b;
+			document.getElementById("ievadsd").value="";
+			document.getElementById("rezultats").value = "";
+			document.getElementById("dal").style.backgroundColor="#dddddd";
+		}
+		if(b>a){
+			document.getElementById("dalisana").value = b +":" + a;
+			document.getElementById("ievadsd").value="";
+			document.getElementById("rezultats").value = "";
+			document.getElementById("dal").style.backgroundColor="#dddddd";
+		}
+	}
+	
+	
+	
+	
+	
+	function PogaViens (){
+		document.getElementById("reiz").style.display = "block";
+		document.getElementById("plus").style.display = "none";
+		document.getElementById("minus").style.display = "none";
+		document.getElementById("dal").style.display = "none";
+		document.getElementById("reiz").style.backgroundColor="#dddddd";
+		document.getElementById("uzdevums").value="";
+		document.getElementById("ievads").value="";
+		document.getElementById("rez").value = "";
+	}
+	function PogaDivi (){
+		document.getElementById("plus").style.display = "block";
+		document.getElementById("reiz").style.display = "none";
+		document.getElementById("minus").style.display = "none";
+		document.getElementById("dal").style.display = "none";
+		document.getElementById("plus").style.backgroundColor="#dddddd";
+		document.getElementById("uzdevumss").value="";
+		document.getElementById("ievadss").value="";
+		document.getElementById("rezz").value = "";
+	}
+	function PogaTris (){
+		document.getElementById("minus").style.display = "block";
+		document.getElementById("reiz").style.display = "none";
+		document.getElementById("plus").style.display = "none";
+		document.getElementById("dal").style.display = "none";
+		document.getElementById("minus").style.backgroundColor="#dddddd";
+		document.getElementById("uzdevumsss").value="";
+		document.getElementById("ievadsss").value="";
+		document.getElementById("rezzz").value = "";
+	}
+	function PogaCetri (){
+		document.getElementById("dal").style.display = "block";
+		document.getElementById("reiz").style.display = "none";
+		document.getElementById("plus").style.display = "none";
+		document.getElementById("minus").style.display = "none";
+		document.getElementById("dal").style.backgroundColor="#dddddd";
+		document.getElementById("dalisana").value="";
+		document.getElementById("ievadsd").value="";
+		document.getElementById("rezultats").value = "";
+	}
+	
+	
+	
+	
+	
+</script>
+
+</body>
+</html>
